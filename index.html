@@ -195,6 +195,10 @@ section{padding:92px 0}
 .band h2{color:var(--sun2)}
 .band p{margin-top:18px;font-size:1.12rem;max-width:34em;opacity:.92}
 .band .btn{margin-top:30px}
+.dlv{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.dlv li{padding-left:30px;position:relative;color:var(--band-ink)}
+.dlv li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--sun2)}
+.dlv b{color:var(--sun2)}
 .band svg.bigsun{width:100%;max-width:340px;justify-self:center}
 
 footer{padding:40px 0 calc(40px + 70px);color:var(--muted);font-size:.93rem}
@@ -435,9 +439,14 @@ footer .links a:hover svg{color:var(--sun)}
 <section class="band" id="sobre">
   <div class="wrap">
     <div>
-      <h2>Quem vende é quem entrega</h2>
-      <p>A Sunshine Lens é do Alan e da Sabrina. Aqui não tem atendimento de robô: vocês conversam direto com a gente, e é o próprio Alan quem leva seu óculos de moto pela Zona Leste.</p>
-      <a class="btn btn-wa" href="https://wa.me/5511945912508?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ver%20os%20modelos%20da%20Sunshine%20Lens" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Falar com a Sunshine</a>
+      <h2>Receba seu óculos em casa</h2>
+      <p>Escolheu o seu? A gente leva até você. Sem sair de casa, sem fila e sem complicação: você combina tudo direto com a gente pelo WhatsApp.</p>
+      <ul class="dlv">
+        <li><b>Escolha</b> o modelo e, se for de grau, mande a foto da receita.</li>
+        <li><b>Combine</b> endereço e horário com a gente, de um jeito que seja bom para você.</li>
+        <li><b>Receba</b> o óculos pronto, com estojo e flanela, e pague do seu jeito: Pix, débito, dinheiro ou crédito em até 4x.</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/5511945912508?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ver%20os%20modelos%20da%20Sunshine%20Lens" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Pedir meu óculos</a>
     </div>
     <svg class="bigsun" viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg>
   </div>
