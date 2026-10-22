@@ -10,6 +10,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Store","name":"Sunshine Lens","description":"Loja online de óculos de sol e armações de grau com entrega na Zona Leste de São Paulo.","telephone":"+55 11 94591-2508","areaServed":"Zona Leste, São Paulo, SP","paymentAccepted":"Pix, cartão de débito, cartão de crédito, dinheiro","sameAs":["https://www.instagram.com/sunshinelens_/"]}
 </script>
+<script>document.documentElement.classList.add("js")</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,6 +63,35 @@ p{margin:0}
 .facts li::before{content:"";flex:none;width:9px;height:9px;margin-top:.5em;border-radius:50%;background:var(--sun)}
 .scene{width:100%;height:auto}
 .horizon{height:6px;background:var(--sun);margin-top:-4px}
+
+
+/* Animações */
+#prog{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--sun),var(--red));transform:scaleX(0);transform-origin:0 50%;z-index:50;pointer-events:none}
+.top{transition:background .3s,box-shadow .3s}
+.top.scrolled{background:rgba(255,241,220,.82);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);box-shadow:0 6px 20px rgba(46,26,58,.07)}
+.hero h1,.hero .sub,.hero .ctas,.hero .facts{animation:up .8s cubic-bezier(.2,.8,.2,1) both}
+.hero .sub{animation-delay:.12s}.hero .ctas{animation-delay:.24s}.hero .facts{animation-delay:.36s}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.scene{transition:transform .25s ease-out;will-change:transform}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.lens::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-120%)}
+@media (hover:hover){
+  .card,.gcard{transition:transform .3s ease,box-shadow .3s ease}
+  .card:hover,.gcard:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(46,26,58,.12)}
+  .card:hover .lens::after{transform:translateX(120%);transition:transform .9s ease}
+  .btn{transition:transform .2s ease,box-shadow .2s ease,background .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(46,26,58,.18)}
+  .btn:active{transform:scale(.97)}
+  .why-photo img{transition:transform .8s ease}.why-photo:hover img{transform:scale(1.04)}
+}
+.band svg.bigsun{animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){
+  .hero h1,.hero .sub,.hero .ctas,.hero .facts,.band svg.bigsun{animation:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .scene{transition:none}.card,.gcard,.btn{transition:none!important}
+}
 
 /* Estilos */
 section{padding:92px 0}
@@ -211,6 +241,7 @@ footer .links a:hover svg{color:var(--sun)}
   </symbol>
 </svg>
 
+<div id="prog" aria-hidden="true"></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Sunshine Lens, início"><svg viewBox="0 0 100 100"><use href="#mark"/></svg><b>Sunshine Lens</b></a>
@@ -433,6 +464,21 @@ if(!ok){m.className="nmsg err";m.textContent="Confira os campos destacados.";ret
 var txt="Oi! Quero receber novidades da Sunshine Lens.%0ANome: "+encodeURIComponent(f.nome.value.trim())+"%0ATelefone: "+encodeURIComponent(f.tel.value.trim())+"%0AE-mail: "+encodeURIComponent(f.email.value.trim());
 m.className="nmsg ok";m.textContent="Pronto! Abrindo o WhatsApp para confirmar seu cadastro.";
 window.open("https://wa.me/5511945912508?text="+txt,"_blank","noopener");f.reset()})})();
+</script>
+<script>
+(function(){
+var rm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var top=document.querySelector(".top"),prog=document.getElementById("prog"),tick=false;
+function sc(){var y=window.scrollY||0,h=document.documentElement.scrollHeight-innerHeight;top.classList.toggle("scrolled",y>8);if(!rm)prog.style.transform="scaleX("+(h>0?Math.min(y/h,1):0)+")";tick=false}
+addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(sc)}},{passive:true});sc();
+if(rm)return;
+var sel=[".head",".guia .tabs",".card",".gcard",".steps li",".why .wrap > *",".band .wrap > *",".newsbox",".gcta",".why-photo"];
+var els=[];sel.forEach(function(q){document.querySelectorAll(q).forEach(function(e){if(els.indexOf(e)<0)els.push(e)})});
+els.forEach(function(e){var p=e.parentElement,i=Array.prototype.indexOf.call(p.children,e);e.style.setProperty("--d",Math.min(i,5)*.09+"s");e.classList.add("rv")});
+if("IntersectionObserver"in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});els.forEach(function(e){io.observe(e)})}else els.forEach(function(e){e.classList.add("in")});
+var sc2=document.querySelector(".scene"),hero=document.querySelector(".hero");
+if(sc2&&window.matchMedia("(hover:hover) and (pointer:fine)").matches){var raf=0;hero.addEventListener("pointermove",function(e){var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;cancelAnimationFrame(raf);raf=requestAnimationFrame(function(){sc2.style.transform="perspective(900px) rotateY("+x*7+"deg) rotateX("+-y*5+"deg) translate("+x*8+"px,"+y*6+"px)"})});hero.addEventListener("pointerleave",function(){sc2.style.transform=""})}
+})();
 </script>
 </body>
 </html>
