@@ -66,7 +66,7 @@ p{margin:0}
 section{padding:92px 0}
 .head{max-width:640px;margin-bottom:40px}
 .head p{color:var(--muted);margin-top:14px;font-size:1.1rem}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:14px 14px 20px;display:flex;flex-direction:column}
 .lens{position:relative;isolation:isolate;aspect-ratio:1/1;overflow:hidden;border-radius:18px;background:#e9e4dc;margin-bottom:18px}
 .lens::before{content:"";position:absolute;inset:-20px;z-index:-1;background:var(--photo) center/cover;filter:blur(18px) saturate(1.1);opacity:.85}
@@ -86,6 +86,30 @@ section{padding:92px 0}
 .card p{margin:0 6px 18px;color:var(--muted);font-size:.97rem;flex:1}
 .card a{margin:0 6px;font-weight:600;color:var(--ink);text-decoration-color:var(--sun);text-decoration-thickness:2px;text-underline-offset:5px}
 .card a:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+
+/* Guia */
+.guia{background:#FCE9CC;border-top:1px solid var(--line)}
+.tabs{display:inline-flex;gap:4px;padding:5px;margin-bottom:36px;background:var(--surface);border:1px solid var(--line);border-radius:999px}
+.tabs button{font:600 1rem Figtree,system-ui,sans-serif;padding:11px 26px;border:0;border-radius:999px;background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.tabs button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.painel[hidden]{display:none}
+.gtitle{font-size:1.5rem;margin:0 0 6px}
+.gsub{color:var(--muted);margin:0 0 22px}
+.painel .gtitle:not(:first-child){margin-top:52px}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px}
+.gcard h4{font:700 1.2rem/1.15 Rubik,system-ui,sans-serif;margin:0}
+.gcard p{margin:0;color:var(--muted);font-size:.97rem}
+.gtag{align-self:flex-start;background:var(--sun2);color:#2E1A3A;font:600 .78rem Figtree,system-ui,sans-serif;padding:4px 11px;border-radius:999px}
+.gline{padding-top:10px;border-top:1px dashed var(--line);font-size:.93rem!important}
+.gline b{display:block;font:700 .74rem Figtree,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.gline .ok{color:#1F7A44}
+.gline .warn{color:var(--red)}
+.gcta{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;margin-top:56px;padding:26px 30px;background:var(--band);color:var(--band-ink);border-radius:26px}
+.gcta p{max-width:36em;margin:0;font-size:1.05rem}
+@media (max-width:900px){.ggrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.ggrid{grid-template-columns:1fr}.gcta{padding:22px}.gcta .btn{width:100%}.tabs{display:flex}.tabs button{flex:1;padding:11px 12px}}
 
 /* Receita */
 .receita{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -130,8 +154,10 @@ footer .links{display:flex;gap:22px}
 @keyframes rise{from{transform:translateY(90px)}to{transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){#rise{animation:none}html{scroll-behavior:auto}}
 
+@media (max-width:760px){
+  .grid4{grid-template-columns:1fr}
+}
 @media (max-width:900px){
-  .grid4{grid-template-columns:repeat(2,1fr)}
   .hero .wrap,.receita .wrap,.why .wrap,.band .wrap{grid-template-columns:1fr}
   .hero{padding-top:36px}
   .hero .art{order:-1;max-width:420px;margin:0 auto;width:100%}
@@ -143,10 +169,6 @@ footer .links{display:flex;gap:22px}
   .hero h1 .hl{font-size:1em}
 }
 @media (max-width:520px){
-  .grid4{grid-template-columns:1fr 1fr;gap:12px}
-  .card{padding:10px 10px 16px;border-radius:20px}
-  .card h3{font-size:1.05rem}
-  .card p{font-size:.9rem}
   .top .btn span{display:none}
   .hero .ctas .btn{flex:1 1 100%}
   .facts{grid-auto-columns:1fr;gap:10px;font-size:.84rem;line-height:1.35}
@@ -218,7 +240,7 @@ footer .links{display:flex;gap:22px}
   <div class="wrap">
     <div class="head">
       <h2>Escolha seu estilo</h2>
-      <p>Do esportivo espelhado à armação de grau. Toque no estilo que você curte e a gente te manda os modelos disponíveis.</p>
+      <p>Do esportivo espelhado à armação de grau. Toque no estilo que você curte e a gente te manda os modelos disponíveis. Em dúvida entre materiais e lentes? Veja o <a href="#guia" style="color:var(--ink);font-weight:600;text-decoration-color:var(--sun);text-underline-offset:4px">guia rápido</a>.</p>
     </div>
     <div class="grid4">
       <article class="card">
@@ -239,14 +261,45 @@ footer .links{display:flex;gap:22px}
         <p>Acetato, metal, redondas e hexagonais. É só trazer sua receita.</p>
         <a href="https://wa.me/5511945912508?text=Oi!%20Quero%20ver%20as%20arma%C3%A7%C3%B5es%20de%20grau" target="_blank" rel="noopener">Ver modelos</a>
       </article>
-      <article class="card">
-        <div class="lens"><img src="data:image/jpeg;base64,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" alt="Armação de metal com lente de reflexo verde" loading="lazy"></div>
-        <h3>Filtro azul</h3>
-        <p>Pra quem passa o dia no celular ou no computador. Com ou sem grau.</p>
-        <a href="https://wa.me/5511945912508?text=Oi!%20Quero%20saber%20sobre%20lentes%20com%20filtro%20azul" target="_blank" rel="noopener">Ver modelos</a>
-      </article>
     </div>
   </div>
+</section>
+
+<section class="guia" id="guia">
+  <div class="wrap">
+    <div class="head">
+      <h2>Guia rápido de armações e lentes</h2>
+      <p>Escolher fica mais fácil quando você entende do que cada coisa é feita. Aqui vai um resumo direto, sem complicação.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Escolha o assunto">
+      <button type="button" role="tab" id="tab-arm" aria-controls="painel-arm" aria-selected="true">Armações</button>
+      <button type="button" role="tab" id="tab-len" aria-controls="painel-len" aria-selected="false" tabindex="-1">Lentes</button>
+    </div>
+    <div class="painel" role="tabpanel" id="painel-arm" aria-labelledby="tab-arm">
+      <h3 class="gtitle">Do que a armação é feita</h3>
+      <p class="gsub">O material muda o peso, a durabilidade, o conforto e o visual do óculos.</p>
+      <div class="ggrid"><article class="gcard"><span class="gtag">Cor e personalidade</span><h4>Acetato</h4><p>Material derivado de celulose, com cores e estampas que são do próprio material, então não descascam com o uso. Dá um visual marcante e costuma ser bem confortável.</p><p class="gline"><b class="ok">Bom para</b> quem quer um óculos com estilo e presença no rosto.</p><p class="gline"><b class="warn">Atenção</b> é um pouco mais grosso que o metal e não gosta de calor forte, como painel de carro ao sol.</p></article><article class="gcard"><span class="gtag">Leve e discreto</span><h4>Metal</h4><p>Ligas como aço inoxidável e monel, em aros finos e elegantes. Hastes e plaquetas costumam ser ajustáveis, o que ajuda a deixar o óculos firme no rosto.</p><p class="gline"><b class="ok">Bom para</b> uso diário, visual clássico e armações redondas ou finas.</p><p class="gline"><b class="warn">Atenção</b> quem tem alergia a níquel precisa avisar na escolha. Uma pancada forte pode entortar o aro.</p></article><article class="gcard"><span class="gtag">Leve e moderno</span><h4>Alumínio</h4><p>Metal muito leve e resistente à corrosão, muito usado em modelos de design moderno e esportivo.</p><p class="gline"><b class="ok">Bom para</b> quem busca leveza, resistência e um visual mais atual.</p><p class="gline"><b class="warn">Atenção</b> é mais rígido, então o ajuste ao formato do rosto é mais limitado.</p></article><article class="gcard"><span class="gtag">Ultraleve e resistente</span><h4>Titânio</h4><p>Um dos materiais mais leves e resistentes. Não enferruja e costuma ser bem tolerado por quem tem pele sensível.</p><p class="gline"><b class="ok">Bom para</b> usar o óculos o dia todo e peles sensíveis.</p><p class="gline"><b class="warn">Atenção</b> costuma ter preço mais alto que as outras opções.</p></article><article class="gcard"><span class="gtag">Flexível e durável</span><h4>TR90 (nylon flexível)</h4><p>Polímero ultraleve que dobra e volta ao formato original. Muito usado em armações esportivas e infantis.</p><p class="gline"><b class="ok">Bom para</b> esportes, crianças e rotina agitada.</p><p class="gline"><b class="warn">Atenção</b> o visual tende a ser mais esportivo, com menos variedade de acabamentos.</p></article><article class="gcard"><span class="gtag">Natural e único</span><h4>Madeira e bambu</h4><p>Hastes ou armações com veios naturais: cada peça é diferente da outra. São leves e dão um toque de estilo.</p><p class="gline"><b class="ok">Bom para</b> quem quer um visual natural e exclusivo.</p><p class="gline"><b class="warn">Atenção</b> evite umidade e deixar de molho. Limpe com pano seco.</p></article></div>
+    </div>
+    <div class="painel" role="tabpanel" id="painel-len" aria-labelledby="tab-len" hidden>
+      <h3 class="gtitle">Material da lente</h3>
+      <p class="gsub">Define o peso, a espessura e a resistência a impactos.</p>
+      <div class="ggrid"><article class="gcard"><span class="gtag">Mais comum</span><h4>Resina (acrílica / CR-39)</h4><p>Lente leve, com ótima qualidade óptica e muito usada no dia a dia. Pode receber os tratamentos de proteção.</p><p class="gline"><b class="ok">Bom para</b> a maioria das pessoas, em graus baixos e médios.</p><p class="gline"><b class="warn">Atenção</b> em graus altos fica mais espessa.</p></article><article class="gcard"><span class="gtag">Resistente a impacto</span><h4>Policarbonato</h4><p>Muito resistente a batidas, leve e já bloqueia os raios UV. Mais segura que a resina.</p><p class="gline"><b class="ok">Bom para</b> crianças, esportes e armações sem aro (parafusadas).</p><p class="gline"><b class="warn">Atenção</b> risca com mais facilidade, por isso recebe tratamento anti-risco.</p></article><article class="gcard"><span class="gtag">Mais fina e leve</span><h4>Alto índice (1.67, 1.74)</h4><p>Lentes mais finas e leves, que deixam a espessura bem menor em graus altos e melhoram o visual do óculos.</p><p class="gline"><b class="ok">Bom para</b> graus mais altos e quem quer lente discreta.</p><p class="gline"><b class="warn">Atenção</b> tem custo maior que as demais.</p></article></div>
+      <h3 class="gtitle">Tipo de lente</h3>
+      <p class="gsub">Depende da sua receita e do que você precisa enxergar no dia a dia.</p>
+      <div class="ggrid"><article class="gcard"><span class="gtag">Mais usada</span><h4>Visão simples (monofocal)</h4><p>Um único grau em toda a lente. Corrige miopia, hipermetropia e astigmatismo, para enxergar bem de longe ou de perto.</p><p class="gline"><b class="ok">Bom para</b> quem precisa corrigir um tipo de dificuldade de visão.</p></article><article class="gcard"><span class="gtag">Longe e perto</span><h4>Multifocal (progressiva)</h4><p>Vários graus na mesma lente, com transição suave entre longe, distância intermediária e perto, sem linha visível. Indicada para vista cansada (presbiopia).</p><p class="gline"><b class="ok">Bom para</b> quem precisa de mais de um grau e não quer trocar de óculos.</p><p class="gline"><b class="warn">Atenção</b> leva alguns dias para o olhar se acostumar.</p></article><article class="gcard"><span class="gtag">Menos usada hoje</span><h4>Bifocal</h4><p>Duas áreas de grau na mesma lente, uma para longe e outra para perto, separadas por uma linha visível. Hoje a multifocal costuma ser preferida.</p><p class="gline"><b class="warn">Atenção</b> a linha de divisão fica visível na lente.</p></article><article class="gcard"><span class="gtag">Trabalho e estudo</span><h4>Ocupacional (para telas)</h4><p>Lente pensada para a distância do computador e da leitura, com menos esforço para quem passa horas diante de telas.</p><p class="gline"><b class="ok">Bom para</b> quem trabalha ou estuda muito tempo no computador.</p><p class="gline"><b class="warn">Atenção</b> não costuma ser indicada para dirigir ou andar na rua.</p></article></div>
+      <h3 class="gtitle">Tratamentos e extras</h3>
+      <p class="gsub">Camadas que podem ser adicionadas para proteger e dar mais conforto.</p>
+      <div class="ggrid"><article class="gcard"><span class="gtag">Mais conforto</span><h4>Antirreflexo</h4><p>Reduz reflexos e brilhos nas lentes. Melhora o conforto ao dirigir à noite e usar telas, e o óculos fica mais bonito em fotos e vídeos.</p><p class="gline"><b class="warn">Atenção</b> precisa de limpeza correta, com pano de microfibra.</p></article><article class="gcard"><span class="gtag">Para telas</span><h4>Filtro de luz azul</h4><p>Reduz parte da luz azul emitida por celulares, computadores e lâmpadas de LED. Muita gente sente mais conforto ao usar telas por muitas horas.</p><p class="gline"><b class="ok">Bom para</b> quem passa o dia no celular ou no computador.</p><p class="gline"><b class="warn">Atenção</b> não substitui pausas durante o uso nem consulta regular com o oftalmologista.</p></article><article class="gcard"><span class="gtag">Escurece no sol</span><h4>Fotossensível (fotocromática)</h4><p>Escurece ao ficar exposta ao sol e volta a ficar clara em ambientes fechados. Um óculos só para dentro e fora de casa. Muita gente conhece como lente "Transitions", que é o nome de uma das marcas desse tipo de lente.</p><p class="gline"><b class="ok">Bom para</b> quem vive entrando e saindo de ambientes.</p><p class="gline"><b class="warn">Atenção</b> dentro do carro escurece menos, porque o vidro filtra parte dos raios UV.</p></article><article class="gcard"><span class="gtag">Proteção diária</span><h4>Proteção UV</h4><p>Bloqueia os raios ultravioleta, que prejudicam os olhos ao longo dos anos. Importante tanto nos óculos de sol quanto nos de grau.</p></article><article class="gcard"><span class="gtag">Mais durabilidade</span><h4>Anti-risco</h4><p>Camada que deixa a lente mais resistente aos arranhões do dia a dia.</p></article><article class="gcard"><span class="gtag">Mais fácil de limpar</span><h4>Hidrofóbico</h4><p>Repele água, gordura e poeira. A lente suja menos e fica mais fácil de limpar.</p></article></div>
+      <h3 class="gtitle">Para óculos de sol</h3>
+      <p class="gsub">Dois acabamentos que fazem muita diferença no sol.</p>
+      <div class="ggrid"><article class="gcard"><span class="gtag">Menos reflexo</span><h4>Polarizada</h4><p>Elimina os reflexos fortes de superfícies como água, asfalto e vidros, o que dá mais conforto e nitidez.</p><p class="gline"><b class="ok">Bom para</b> dirigir, praia e atividades ao ar livre.</p></article><article class="gcard"><span class="gtag">Visual marcante</span><h4>Espelhada</h4><p>Tem uma camada refletiva por fora, que reduz a entrada de luz e dá o visual dos modelos esportivos, em cores como azul, vermelho e dourado.</p><p class="gline"><b class="ok">Bom para</b> dias de muito sol e quem gosta de um visual forte.</p></article></div>
+    </div>
+    <div class="gcta">
+      <p>As informações acima são gerais. A melhor combinação depende da sua receita e do seu dia a dia. Manda a foto da receita que a gente te ajuda a escolher.</p>
+      <a class="btn btn-wa" href="https://wa.me/5511945912508?text=Oi!%20Quero%20ajuda%20para%20escolher%20armação%20e%20lente" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Quero ajuda para escolher</a>
+    </div>
+  </div>
+  <noscript><style>.painel[hidden]{display:block}.tabs{display:none}</style></noscript>
 </section>
 
 <section class="receita" id="grau">
@@ -323,6 +376,14 @@ document.querySelectorAll(".carousel").forEach(function(c){
   document.addEventListener("visibilitychange",function(){document.hidden?stop():play();});
   play();
 });
+(function(){
+  var tabs=document.querySelectorAll('.tabs [role="tab"]');
+  function show(t){tabs.forEach(function(b){var on=b===t;b.setAttribute("aria-selected",on?"true":"false");b.tabIndex=on?0:-1;document.getElementById(b.getAttribute("aria-controls")).hidden=!on;});}
+  tabs.forEach(function(b,i){
+    b.addEventListener("click",function(){show(b)});
+    b.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var n=tabs[(i+(e.key==="ArrowRight"?1:tabs.length-1))%tabs.length];show(n);n.focus();}});
+  });
+})();
 </script>
 </body>
 </html>
