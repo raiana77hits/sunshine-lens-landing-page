@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sunshine Lens | Óculos de sol e de grau na Zona Leste de SP</title>
-<meta name="description" content="Óculos de sol e armações de grau com preço de fábrica. Pedido pelo WhatsApp, parcelamento em até 4x e entrega em toda a Zona Leste de São Paulo.">
+<title>Sunshine Lens | Óculos de sol e de grau com entrega para todo o Brasil</title>
+<meta name="description" content="Óculos de sol e armações de grau com preço de fábrica. Pedido pelo WhatsApp, parcelamento em até 4x e entrega para todo o Brasil.">
 <meta property="og:title" content="Sunshine Lens | Óculos que elevam seu estilo">
-<meta property="og:description" content="Óculos de sol e armações de grau com preço de fábrica, entregues na Zona Leste de SP.">
+<meta property="og:description" content="Óculos de sol e armações de grau com preço de fábrica, entregues em todo o Brasil.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Store","name":"Sunshine Lens","description":"Loja online de óculos de sol e armações de grau com entrega na Zona Leste de São Paulo.","telephone":"+55 11 94591-2508","areaServed":"Zona Leste, São Paulo, SP","paymentAccepted":"Pix, cartão de débito, cartão de crédito, dinheiro","sameAs":["https://www.instagram.com/sunshinelens_/"]}
+{"@context":"https://schema.org","@type":"Store","name":"Sunshine Lens","description":"Loja online de óculos de sol e armações de grau com entrega para todo o Brasil.","telephone":"+55 11 94591-2508","areaServed":"BR","paymentAccepted":"Pix, cartão de débito, cartão de crédito, dinheiro","sameAs":["https://www.instagram.com/sunshinelens_/"]}
 </script>
 <script>document.documentElement.classList.add("js")</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -199,6 +199,11 @@ section{padding:92px 0}
 .dlv li{padding-left:30px;position:relative;color:var(--band-ink)}
 .dlv li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--sun2)}
 .dlv b{color:var(--sun2)}
+.prazos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+.prazos div{border:1px solid rgba(255,241,220,.28);border-radius:16px;padding:14px 14px 12px;display:grid;gap:2px}
+.prazos b{font:800 1.05rem Rubik,system-ui,sans-serif;color:var(--sun2)}
+.prazos span{font-size:.88rem;color:var(--band-ink)}
+@media (max-width:520px){.prazos{grid-template-columns:1fr}}
 .band svg.bigsun{width:100%;max-width:340px;justify-self:center}
 
 footer{padding:40px 0 calc(40px + 70px);color:var(--muted);font-size:.93rem}
@@ -414,7 +419,7 @@ footer .links a:hover svg{color:var(--sun)}
         <li><div><h3>Mande a foto da receita</h3><p>Pelo WhatsApp, junto com o estilo de armação que você procura.</p></div></li>
         <li><div><h3>Escolha armação e lente</h3><p>A gente te mostra os modelos e o valor de cada combinação.</p>
           <div class="lentes"><span>Antirreflexo</span><span>Filtro azul</span><span>Fotossensível</span><span>Multifocal</span></div></div></li>
-        <li><div><h3>Receba em casa</h3><p>Óculos pronto, com estojo e flanela, entregue na Zona Leste.</p></div></li>
+        <li><div><h3>Receba em casa</h3><p>Óculos pronto, com estojo e flanela, entregue em todo o Brasil.</p></div></li>
       </ol>
       <p class="note">Trabalhamos com a receita do seu oftalmologista. Não realizamos exame de vista.</p>
     </div>
@@ -440,12 +445,17 @@ footer .links a:hover svg{color:var(--sun)}
   <div class="wrap">
     <div>
       <h2>Receba seu óculos em casa</h2>
-      <p>Escolheu o seu? A gente leva até você. Sem sair de casa, sem fila e sem complicação: você combina tudo direto com a gente pelo WhatsApp.</p>
+      <p>Escolheu o seu? A gente entrega para todo o Brasil. Sem sair de casa, sem fila e sem complicação: você combina tudo direto com a gente pelo WhatsApp.</p>
       <ul class="dlv">
         <li><b>Escolha</b> o modelo e, se for de grau, mande a foto da receita.</li>
-        <li><b>Combine</b> endereço e horário com a gente, de um jeito que seja bom para você.</li>
+        <li><b>Combine</b> o endereço e a forma de entrega com a gente.</li>
         <li><b>Receba</b> o óculos pronto, com estojo e flanela, e pague do seu jeito: Pix, débito, dinheiro ou crédito em até 4x.</li>
       </ul>
+      <div class="prazos" aria-label="Prazos de entrega">
+        <div><b>1 dia útil</b><span>Óculos de sol sem grau</span></div>
+        <div><b>até 3 dias úteis</b><span>Grau de visão simples</span></div>
+        <div><b>até 10 dias úteis</b><span>Multifocal</span></div>
+      </div>
       <a class="btn btn-wa" href="https://wa.me/5511945912508?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ver%20os%20modelos%20da%20Sunshine%20Lens" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Pedir meu óculos</a>
     </div>
     <svg class="bigsun" viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg>
